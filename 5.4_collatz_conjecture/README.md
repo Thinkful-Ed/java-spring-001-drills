@@ -74,3 +74,13 @@ For example, a call to `http://localhost:8080/3` will result in
 ```
 3 -- 10 -- 5 -- 16 -- 8 -- 4 -- 2 -- 1
 ```
+## Testing
+Two test files are provided, the *CollatzApplicationTests.java* provides a smoke test to ensure
+that the code runs within the environment and *CollatzControllerTests.java* unit tests the 
+controller itself.
+
+To run the tests:
+
+```
+gradle test
+```
