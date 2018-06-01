@@ -9,10 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class CollatzController {
   @RequestMapping(value = "/{n}")
   public String index(@PathVariable Integer n) {
-    if (n > 0) {
+    if (n > 1) {
       return doCollatz(n);
     } else {
-      return "Sorry, this algorithm only works on positive integers";
+      if (n == 1) {
+        return "1";
+      } else {
+        return "Sorry, this algorithm only works on positive integers";
+      }
     } 
   }
 
