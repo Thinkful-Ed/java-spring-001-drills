@@ -10,7 +10,7 @@ Recall drill 2.5 as follows:
 
  > Write a program that accepts a positive integer and prints the sequence as defined above.
 
-Create a new Spring Boot application with a single controller that implements the Collatz Conjecture program as described. The controller should accept input as a Path Variable and return a simple String result. Provide basic Exception Handling support in your controller.
+ Create a new Spring Boot application with a single controller that implements the Collatz Conjecture program as described. The controller should accept input as a Path Variable and return a simple String result. Provide basic Exception Handling support in your controller.
 
  # Solution
  Initialize a new Spring application using the Spring CLI or https://start.spring.io. The CLI command is:
