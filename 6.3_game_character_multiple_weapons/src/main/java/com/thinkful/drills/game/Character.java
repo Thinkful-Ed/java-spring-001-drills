@@ -1,13 +1,14 @@
 package com.thinkful.drills.game;
 
+import java.util.List;
+
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 @Inheritance
@@ -18,9 +19,8 @@ public class Character {
   private int health;
   private double strength;
 
-  @ManyToOne
-  @JoinColumn(name = "weapon")
-  private Weapon weapon;
+  @OneToMany(mappedBy = "character")
+  private List<Weapon> weapons;
 
   public static final int INITIAL_HEALTH = 100;
   public static final double INITIAL_STRENGTH = 100.0;
@@ -71,12 +71,12 @@ public class Character {
     return this.id;
   }
 
-  public void setWeapon(Weapon weapon) {
-    this.weapon = weapon;
+  public void setWeapons(List<Weapon> weapons) {
+    this.weapons = weapons;
   }
 
-  public Weapon getWeapon() {
-    return this.weapon;
+  public List<Weapon> getWeapons() {
+    return this.weapons;
   }
 
   public void setName(String name) {

@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Inheritance
@@ -17,6 +19,9 @@ public class Weapon {
   private double weight;
   private String name;
 
+  @ManyToOne
+  @JoinColumn(name = "character")
+  private Character character;
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -70,6 +75,14 @@ public class Weapon {
 
   public Long getId() {
     return this.id;
+  }
+
+  public void setCharacter(Character character) {
+    this.character = character;
+  }
+
+  public Character getCharacter() {
+    return this.character;
   }
   
   public void setName(String name) {
