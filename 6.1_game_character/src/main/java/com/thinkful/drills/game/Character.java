@@ -1,5 +1,15 @@
 package com.thinkful.drills.game;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+
+@Entity
+@Inheritance
+@DiscriminatorColumn(name = "character_race")
 public class Character {
   private String name;
   private String description;
@@ -8,6 +18,10 @@ public class Character {
 
   public static final int INITIAL_HEALTH = 100;
   public static final double INITIAL_STRENGTH = 100.0;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
 
   /**
    * Create a Character with all default values.

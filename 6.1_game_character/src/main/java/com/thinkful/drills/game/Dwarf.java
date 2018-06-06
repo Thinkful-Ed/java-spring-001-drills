@@ -1,11 +1,23 @@
 package com.thinkful.drills.game;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+@DiscriminatorValue("dwarf")
 public class Dwarf extends Character {
   private double jumpHeight;
   
   public static final int INITIAL_HEALTH = 75;
   public static final double INITIAL_STRENGTH = 50.0;
   public static final double INITIAL_JUMP = 25.0;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
 
   /**
    * Create a new Dwarf with default values.
