@@ -15,10 +15,6 @@ public class Dwarf extends Character {
   public static final double INITIAL_STRENGTH = 50.0;
   public static final double INITIAL_JUMP = 25.0;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
-
   /**
    * Create a new Dwarf with default values.
    */

@@ -1,11 +1,26 @@
 package com.thinkful.drills.game;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+
+@Entity
+@Inheritance
+@DiscriminatorColumn(name = "weapon_type")
 public class Weapon {
   private int strength;
   private int damage;
   private double cost;
   private double weight;
   private String name;
+
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
 
   /**
    * Create a new Weapon with default values.
@@ -53,6 +68,10 @@ public class Weapon {
     this.setCost(cost);
   }
 
+  public Long getId() {
+    return this.id;
+  }
+  
   public void setName(String name) {
     this.name = name;
   }

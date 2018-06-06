@@ -1,5 +1,13 @@
 package com.thinkful.drills.game;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+@DiscriminatorValue("knife")
 public class Knife extends Weapon {
 
   private double sharpness;
