@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Data;
+import lombok.Getter;
+
+@Data
 @Entity
 @DiscriminatorValue("hammer")
 public class Hammer extends Weapon {
@@ -69,11 +73,4 @@ public class Hammer extends Weapon {
     this.setThrowingDistance(throwingDistance);
   }
 
-  public void setThrowingDistance(double throwingDistance) {
-    this.throwingDistance = throwingDistance;
-  }
-
-  public double getThrowingDistance() {
-    return this.throwingDistance;
-  }
 }

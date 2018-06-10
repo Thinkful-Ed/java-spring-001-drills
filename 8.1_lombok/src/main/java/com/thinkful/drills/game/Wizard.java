@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Data;
+import lombok.Getter;
+
+@Data
 @Entity
 @DiscriminatorValue("wizard")
 public class Wizard extends Character { 
@@ -57,14 +61,6 @@ public class Wizard extends Character {
   public Wizard(String name, String description, int health, double strength, double magicRating) {
     super(name, description, health, strength);
     this.setMagicRating(magicRating);
-  }
-
-  public void setMagicRating(double magicRating) {
-    this.magicRating = magicRating;
-  }
-
-  public double getMagicRating() {
-    return this.magicRating;
   }
 
 }

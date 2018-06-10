@@ -9,6 +9,10 @@ import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import lombok.Data;
+import lombok.Getter;
+
+@Data
 @Entity
 @Inheritance
 @DiscriminatorColumn(name = "weapon_type")
@@ -23,6 +27,7 @@ public class Weapon {
   @JoinColumn(name = "character")
   private Character character;
 
+  @Getter
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
@@ -73,57 +78,6 @@ public class Weapon {
     this.setCost(cost);
   }
 
-  public Long getId() {
-    return this.id;
-  }
-
-  public void setCharacter(Character character) {
-    this.character = character;
-  }
-
-  public Character getCharacter() {
-    return this.character;
-  }
-  
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setDamage(int damage) {
-    this.damage = damage;
-  }
-
-  public int getDamage() {
-    return this.damage;
-  }
-
-  public void setStrength(int strength) {
-    this.strength = strength;
-  }
-
-  public int getStrength() {
-    return this.strength;
-  }
-
-  public void setWeight(double weight) {
-    this.weight = weight;
-  }
-
-  public double getWeight() {
-    return this.weight;
-  }
-
-  public void setCost(double cost) {
-    this.cost = cost;
-  }
-
-  public double getCost() {
-    return this.cost;
-  }
 
   /**
    *  Perform an attack on a Character.

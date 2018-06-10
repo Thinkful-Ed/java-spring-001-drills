@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Data;
+import lombok.Getter;
+
+@Data
 @Entity
 @DiscriminatorValue("dwarf")
 public class Dwarf extends Character {
@@ -56,14 +60,6 @@ public class Dwarf extends Character {
   public Dwarf(String name, String description, int health, double strength, double jumpHeight) {
     super(name, description, health, strength);
     this.setJumpHeight(jumpHeight);
-  }
-
-  public void setJumpHeight(double jumpHeight) {
-    this.jumpHeight = jumpHeight;
-  }
-
-  public double getJumpHeight() {
-    return this.jumpHeight;
   }
 
 }

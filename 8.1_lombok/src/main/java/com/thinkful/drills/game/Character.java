@@ -10,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.OneToMany;
 
+import lombok.Data;
+import lombok.Getter;
+
+@Data
 @Entity
 @Inheritance
 @DiscriminatorColumn(name = "character_race")
@@ -25,6 +29,7 @@ public class Character {
   public static final int INITIAL_HEALTH = 100;
   public static final double INITIAL_STRENGTH = 100.0;
 
+  @Getter
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
@@ -65,50 +70,6 @@ public class Character {
     this.setHealth(health);
     this.setStrength(strength);
     this.setDescription(description);
-  }
-
-  public Long getId() {
-    return this.id;
-  }
-
-  public void setWeapons(List<Weapon> weapons) {
-    this.weapons = weapons;
-  }
-
-  public List<Weapon> getWeapons() {
-    return this.weapons;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setHealth(int health) {
-    this.health = health;
-  }
-
-  public int getHealth() {
-    return this.health;
-  }
-
-  public void setStrength(double strength) {
-    this.strength = strength;
-  }
-
-  public double getStrength() {
-    return this.strength;
   }
 
   /**

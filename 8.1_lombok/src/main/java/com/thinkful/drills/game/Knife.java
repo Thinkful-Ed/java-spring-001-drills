@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Data;
+import lombok.Getter;
+
+@Data
 @Entity
 @DiscriminatorValue("knife")
 public class Knife extends Weapon {
@@ -68,12 +72,4 @@ public class Knife extends Weapon {
     this.setSharpness(sharpness);
   }
 
-
-  public void setSharpness(double sharpness) {
-    this.sharpness = sharpness;
-  }
-
-  public double getSharpness() {
-    return this.sharpness;
-  }
 }
