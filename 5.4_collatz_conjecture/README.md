@@ -10,4 +10,77 @@ Recall drill 2.5 as follows:
 
  > Write a program that accepts a positive integer and prints the sequence as defined above.
 
-Create a new Spring Boot application with a single controller that implements the Collatz Conjecture program as described. The controller should accept input as a Path Variable and return a simple String result. Provide basic Exception Handling support in your controller.
+ Create a new Spring Boot application with a single controller that implements the Collatz Conjecture program as described. The controller should accept input as a Path Variable and return a simple String result. Provide basic Exception Handling support in your controller.
+
+ # Solution
+ Initialize a new Spring application using the Spring CLI or https://start.spring.io. The CLI command is:
+
+ ```bash
+ spring init --build=gradle --java-version=1.8 --dependencies=web --packaging=jar --group=com.thinkful.drills --artifact=collatz --name=Collatz collatz.zip
+ ```
+
+ This creates a zip file named ~collatz.zip~ in the current directory. Unzip this file using your zip software of choice. You may delete the zip file once extracted.
+
+ The following files are found in the generated project:
+ 
+ ```
+ |_gradle/
+ |_src/
+ |  |_main/
+ |  | |_java/
+ |  | | |_com/
+ |  | |   |_thinkful/
+ |  | |     |_drills/
+ |  | |       |_collatz/
+ |  | |         |_CollatzApplication.java
+ |  | |_resources/
+ |  |   |_application.properties
+ |  |_test/
+ |    |_java/
+ |      |_com/
+ |        |_thinkful/
+ |          |_drills/
+ |            |_collatz/
+ |              |_CollatzApplicationTests.java
+ |_.gitignore
+ |_build.gradle
+ |_gradlew
+ |_gradlew.bat
+ |_settings.gradle              
+```
+## Running the Application
+First build the project.
+
+```
+gradle build
+```
+
+Then either:
+
+```
+gradle bootRun
+```
+
+or
+
+```
+java -jar build/libs/collatz-0.0.1-SNAPSHOT.jar
+```
+
+To get invoke the application use Postman to make a GET request to http://localhost:8080/<n>, where <n> is an integer.
+
+For example, a call to `http://localhost:8080/3` will result in 
+
+```
+3 -- 10 -- 5 -- 16 -- 8 -- 4 -- 2 -- 1
+```
+## Testing
+Two test files are provided, the *CollatzApplicationTests.java* provides a smoke test to ensure
+that the code runs within the environment and *CollatzControllerTests.java* unit tests the 
+controller itself.
+
+To run the tests:
+
+```
+gradle test
+```
